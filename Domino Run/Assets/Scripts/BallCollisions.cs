@@ -33,7 +33,7 @@ public class BallCollisions : MonoBehaviour
         {
             confetties[i].Play();
         }
-        gameManager.PassLevel();
+        //gameManager.PassLevel();
     }
     void Die()
     {

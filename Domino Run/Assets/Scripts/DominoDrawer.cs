@@ -14,8 +14,10 @@ public class DominoDrawer : MonoBehaviour
     //transforms
     Transform lastDomino;
     Transform currentDomino;
+    public Transform finalDomino;
     //custom
     Domino firstDomino;
+    public FollowMouse follower;
     //bool
     public bool dropOnRelease = true;
     private void Update()
@@ -44,6 +46,7 @@ public class DominoDrawer : MonoBehaviour
             currentDomino.rotation = Quaternion.LookRotation(currentDomino.position - lastDomino.position);
             firstDomino.Knock();
         }
+        finalDomino = currentDomino;
         currentDomino = null;
         lastDomino = null;
     }
@@ -55,10 +58,12 @@ public class DominoDrawer : MonoBehaviour
         }
         dist = 0;
         currentDomino = Instantiate(dominoPrefab, spawnPos, Quaternion.identity).transform;
+        currentDomino.GetComponent<Domino>().line = follower.currentLine;
         if(lastDomino != null)
         {
             lastDomino.LookAt(currentDomino);
             lastDomino.GetComponent<Domino>().nextDomino = currentDomino.GetComponent<Domino>();
+            lastDomino.GetComponent<Domino>().Fall();
         }
         else
         {
