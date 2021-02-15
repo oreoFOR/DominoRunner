@@ -6,9 +6,6 @@ public class DominoManager : MonoBehaviour
     public CinemachineVirtualCamera vCam1;
     public CinemachineVirtualCamera vCam2;
     public CinemachineVirtualCamera vCam3;
-    public GemManager gemManager;
-    public RectTransform canvasRect;
-    public RectTransform counterRect;
     public Transform nextDomino;
     public GameObject runningDomino;
     bool cam1 = true;
@@ -47,10 +44,6 @@ public class DominoManager : MonoBehaviour
     {
         //runnner
         nextDomino.GetComponent<DominoCollision>().manager = GetComponent<FollowMouse>();
-        GemPicker picker = nextDomino.GetComponent<GemPicker>();
-        picker.canvasRect = canvasRect;
-        picker.counterRect = counterRect;
-        picker.gemManager = gemManager;
         //lastDomino
         Domino lastDominoScr = lastDomino.GetComponent<Domino>();
         lastDominoScr.lastDomino = true;

@@ -34,11 +34,6 @@ public class DominoCollision : MonoBehaviour
                 CameraSetup(otherDomino);
             }
         }
-        if (collision.gameObject.CompareTag("Gem"))
-        {
-            gemPicker.CollectGem(collision.gameObject.transform.position);
-            Destroy(collision.gameObject);
-        }
     }
     void SetUp()
     {

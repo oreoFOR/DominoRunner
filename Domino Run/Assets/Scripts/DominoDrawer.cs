@@ -11,6 +11,7 @@ public class DominoDrawer : MonoBehaviour
     Vector3 lastPos;
     //game objects
     public GameObject dominoPrefab;
+    public GameObject errorPrefab;
     //transforms
     Transform lastDomino;
     Transform currentDomino;
@@ -35,7 +36,8 @@ public class DominoDrawer : MonoBehaviour
         lastPos = transform.position;
         if(dist >= dominoDist)
         {
-            PlaceDominoes();
+            print("distance crossed");
+            PlaceDominoes(Vector3.zero);
         }
     }
     public void Knock()
@@ -70,21 +72,40 @@ public class DominoDrawer : MonoBehaviour
             firstDomino = currentDomino.GetComponent<Domino>();
         }
     }
-    void PlaceDominoes()
+    public void PlaceDominoes(Vector3 startPos)
     {
-        if(currentDomino != null)
+        if(startPos == Vector3.zero)
         {
-            float dominoNum = Mathf.Round(dist / dominoDist);
-            Vector3 startpos = currentDomino.position;
-            for (int i = 0; i < dominoNum; i++)
+            if (currentDomino != null)
             {
-                startpos += (transform.position - currentDomino.position).normalized * dominoDist;
-                SpawnDomino(startpos);
+                startPos = currentDomino.position;
+                float dominoNum = Mathf.Round(dist / dominoDist);
+                for (int i = 0; i < dominoNum; i++)
+                {
+                    startPos += (transform.position - currentDomino.position).normalized * dominoDist;
+                    SpawnDomino(startPos);
+                }
+            }
+            else
+            {
+                print("first this");
+                SpawnDomino(transform.position);
             }
         }
         else
         {
-            SpawnDomino(transform.position);
+            float runDist = (startPos - transform.position).magnitude;
+            float dominoNum = Mathf.Round(runDist/ dominoDist);
+            print(dominoNum);
+            for (int i = 0; i < dominoNum; i++)
+            {
+                if(i > 0)
+                {
+                    startPos += (transform.position - currentDomino.position).normalized * dominoDist;
+                }
+                SpawnDomino(startPos);
+            }
         }
     }
+    
 }

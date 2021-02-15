@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FollowMouse : MonoBehaviour
 {
@@ -14,6 +12,7 @@ public class FollowMouse : MonoBehaviour
     public GameObject dominoLine;
     public DominoLine currentLine;
     public CursorImage cursorImage;
+    public DominoManager dominoManager;
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -23,6 +22,9 @@ public class FollowMouse : MonoBehaviour
             switchCams = false;
             finishedPlacing = false;
             cursorImage.EnableCursor(true);
+            FollowMouseLogic();
+            drawer.PlaceDominoes(dominoManager.nextDomino.position);
+            print(dominoManager.nextDomino.position);
         }
         else if(Input.GetMouseButtonUp(0))
         {
@@ -36,7 +38,7 @@ public class FollowMouse : MonoBehaviour
             {
                 switchCams = false;
                 finishedPlacing = false;
-                GetComponent<DominoManager>().NextDomino();
+                dominoManager.NextDomino();
             }
         }
         if (followMouse)
@@ -57,11 +59,10 @@ public class FollowMouse : MonoBehaviour
     {
         if (hitDomino.line.finishedLine)
         {
-            print("has finished");
             switchCams = false;
             finishedPlacing = false;
             drawer.finalDomino = hitDomino.line.finalDomino;
-            GetComponent<DominoManager>().NextDomino();
+            dominoManager.NextDomino();
         }
         else
         {

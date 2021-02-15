@@ -7,9 +7,17 @@ public class GemPicker : MonoBehaviour
     public RectTransform canvasRect;
     public RectTransform counterRect;
     public GemManager gemManager;
+    public Gem[] gems;
+    private void Start()
+    {
+        for (int i = 0; i < gems.Length; i++)
+        {
+            gems[i].picker = this;
+        }
+    }
     public void CollectGem(Vector3 psPos)
     {
-        Instantiate(gemPs, psPos, Quaternion.identity);
+        Instantiate(gemPs, psPos, Quaternion.identity).GetComponent<Gem>();
         GemPosition(psPos);
         gemManager.IncrementGems();
     }

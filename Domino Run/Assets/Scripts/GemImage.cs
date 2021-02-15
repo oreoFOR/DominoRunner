@@ -10,11 +10,14 @@ public class GemImage : MonoBehaviour
     private void Start()
     {
         rTransform = GetComponent<RectTransform>();
-        Invoke("ReachedTarget", 0.75f);
     }
     private void Update()
     {
-        rTransform.localPosition = Vector2.Lerp(rTransform.localPosition, counter.localPosition, moveSpeed);
+        rTransform.localPosition = Vector2.Lerp(rTransform.localPosition, counter.localPosition, moveSpeed * Time.deltaTime);
+        if((rTransform.localPosition - counter.localPosition).magnitude < 10f)
+        {
+            ReachedTarget();
+        }
     }
     private void ReachedTarget()
     {

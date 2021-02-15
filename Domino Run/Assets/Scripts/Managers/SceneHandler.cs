@@ -7,7 +7,6 @@ public class SceneHandler : MonoBehaviour
 {
     public void Replay()
     {
-        print("replay");
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
     }
