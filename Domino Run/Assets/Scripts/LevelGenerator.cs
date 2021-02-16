@@ -40,16 +40,36 @@ public class LevelGenerator : MonoBehaviour
     }
     void SpawnGems()
     {
-        GemPicker picker = Instantiate(middleGemLines[Random.Range(0, 3)], new Vector3(0,0,zPos - obstacleDistMax/2), Quaternion.identity).GetComponent<GemPicker>();
-        picker.canvasRect = canvasRect;
-        picker.counterRect = counterRect;
-        picker.gemManager = gemManager;
+        if (Spawn(2))
+        {
+            GemPicker picker = Instantiate(middleGemLines[Random.Range(0, 3)], new Vector3(0, 0, zPos - obstacleDistMax / 2), Quaternion.identity).GetComponent<GemPicker>();
+            picker.canvasRect = canvasRect;
+            picker.counterRect = counterRect;
+            picker.gemManager = gemManager;
+        }
     }
     void SpawnObstacleGems(int obstacle)
     {
-        GemPicker picker = Instantiate(gemFormations[obstacle], new Vector3(0, 0, zPos), Quaternion.identity).GetComponent<GemPicker>();
-        picker.canvasRect = canvasRect;
-        picker.counterRect = counterRect;
-        picker.gemManager = gemManager;
+        print("called");
+        if (Spawn(2))
+        {
+            print("passed");
+            GemPicker picker = Instantiate(gemFormations[obstacle], new Vector3(0, 0, zPos), Quaternion.identity).GetComponent<GemPicker>();
+            picker.canvasRect = canvasRect;
+            picker.counterRect = counterRect;
+            picker.gemManager = gemManager;
+        }
+    }
+    bool Spawn(int chance)
+    {
+        int i = Random.Range(0, chance);
+        if(i == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
