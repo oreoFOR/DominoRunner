@@ -19,7 +19,7 @@ public class DominoCollision : MonoBehaviour
     {
         runner.speed = 10;
         GetComponent<Animator>().SetTrigger("standUp");
-        Invoke("SetUp", 0.75f);
+        SetUp();
     }
     private void OnCollisionEnter(Collision collision)
     {

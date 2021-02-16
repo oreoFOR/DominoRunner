@@ -109,7 +109,6 @@ GameObject:
   - component: {fileID: 5018034168210956491}
   - component: {fileID: 5018034168210956490}
   - component: {fileID: 8041451660388664486}
-  - component: {fileID: 3393708420050641273}
   m_Layer: 8
   m_Name: running domino
   m_TagString: Domino
@@ -179,7 +178,7 @@ MonoBehaviour:
   runner: {fileID: 5018034168210956484}
   manager: {fileID: 0}
   firstDomino: 0
-  gemPicker: {fileID: 3393708420050641273}
+  gemPicker: {fileID: 0}
 --- !u!95 &8041451660388664486
 Animator:
   serializedVersion: 3
@@ -199,22 +198,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3393708420050641273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5018034168210956486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 562cc6e910b14174b83a07e2b6e6cfdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gemPs: {fileID: 4679022186639086853, guid: 17ba05f2d87208d47b68d961571fb7ab, type: 3}
-  gemImage: {fileID: 1395958844007046560, guid: 11fc0a9cb789b51428c2b0c531afe0b5,
-    type: 3}
-  canvasRect: {fileID: 0}
 --- !u!1 &5018034168758260725
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,8 +506,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8947330736972490709}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2399998, z: 0.14599895}
-  m_LocalScale: {x: 1.5, y: 2.5, z: 0.01}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0.14599895}
+  m_LocalScale: {x: 1.5, y: 3, z: 0.01}
   m_Children: []
   m_Father: {fileID: 5018034167557425094}
   m_RootOrder: 3
@@ -616,8 +599,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9179263357899180733}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.24, z: -0.161}
-  m_LocalScale: {x: 1.5, y: 2.5, z: 0.01}
+  m_LocalPosition: {x: 0, y: 1.5, z: -0.161}
+  m_LocalScale: {x: 1.5, y: 3, z: 0.01}
   m_Children: []
   m_Father: {fileID: 5018034167557425094}
   m_RootOrder: 2
@@ -709,8 +692,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9190357796373531440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2399998, z: -0.0040006638}
-  m_LocalScale: {x: 1.5, y: 2.5, z: 0.29999998}
+  m_LocalPosition: {x: 0, y: 1.5, z: -0.0040006638}
+  m_LocalScale: {x: 1.5, y: 3, z: 0.29999998}
   m_Children: []
   m_Father: {fileID: 5018034167557425094}
   m_RootOrder: 1

@@ -50,4 +50,28 @@ public class DominoManager : MonoBehaviour
         lastDominoScr.runner = nextDomino.GetComponent<DominoCollision>();
         lastDominoScr.StartRunner();
     }
+    public void GameOver(bool success)
+    {
+        vCam1.Follow = null;
+        vCam1.LookAt = null;
+        vCam2.Follow = null;
+        vCam2.LookAt = null;
+        if(nextDomino != null)
+        {
+            nextDomino.GetComponent<RunningDomino>().enabled = false;
+            nextDomino.GetComponent<DominoCollision>().enabled = false;
+            if (!success)
+            {
+                nextDomino.GetComponent<Animator>().enabled = false;
+            }
+            else
+            {
+                nextDomino.GetComponent<Animator>().SetTrigger("slide");
+            }
+        }
+        GetComponent<FollowMouse>().enabled = false;
+        GetComponent<DominoDrawer>().enabled = false;
+ 
+        enabled = false;
+    }
 }

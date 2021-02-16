@@ -9,6 +9,16 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Domino"))
         {
+            if(collision.gameObject.GetComponent<Rigidbody>() != null)
+            {
+                collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            }
+            else
+            {
+                Domino domino = collision.gameObject.GetComponentInParent<Domino>();
+                domino.nextDomino = null;
+                domino.gameObject.AddComponent<Rigidbody>();
+            }
             manager.GameOver();
         }
     }

@@ -9,8 +9,7 @@ public class FinishLine : MonoBehaviour
     {
         if (other.CompareTag("Domino"))
         {
-            print(other.gameObject.name);
-            manager.PassLevel(other.GetComponentInParent<RunningDomino>());
+            manager.PassLevel();
         }
     }
 }
