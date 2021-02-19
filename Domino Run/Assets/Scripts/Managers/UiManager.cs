@@ -12,6 +12,7 @@ public class UiManager : MonoBehaviour
     private void Start()
     {
         levelNum.text = "Level " + (PlayerPrefs.GetInt("LevelNum") + 1).ToString();
+        SetSave();
     }
     public void StartGame()
     {
@@ -23,5 +24,11 @@ public class UiManager : MonoBehaviour
     public void UpdateUi(int gems)
     {
         gemCounter.text = gems.ToString();
+    }
+    void SetSave()
+    {
+        PlayerPrefs.SetInt("GemNum", 0);
+        gemCounter.text = "0";
+        levelNum.text = "Level 10";
     }
 }
